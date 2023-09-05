@@ -27,7 +27,7 @@ lftp $FULL_URL -e 'mirror .; exit'
 # Listing all dirs which do not contain sub dirs
 # (Meaning - in Nexus repository they contain the actual files to download, such as jar files)
 LIST_OF_DIRS=""
-for i in `find -type d`; do
+for i in `find . -type d`; do
   IS_EMPTY=`ls -A -- $i`
   if [[ -z $IS_EMPTY ]]; then
     LIST_OF_DIRS="${LIST_OF_DIRS} `echo $i | sed 's/\.\///1'`"
